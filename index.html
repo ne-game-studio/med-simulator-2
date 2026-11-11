@@ -297,6 +297,7 @@ function has(){try{return !!localStorage.getItem('ms10')}catch(e){return false}}
 setInterval(()=>{if(!S||paused||busy||!$('#tm'))return;acc+=50*spd;if(acc<1000)return;acc-=1000;
  if(S.lines>0){S.lines--;addLine();upd()}else{nextDay();if(!busy&&$('#tm')){upd();save()}}},50);
 start();
+</script>
 <script>
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
