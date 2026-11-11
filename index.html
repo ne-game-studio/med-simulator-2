@@ -297,7 +297,7 @@ function nerd(){ap({en:-5,g:3});say(`🙋 你向 ${S.nerd} 請教了幾個問題
 function buy(c,fx,k){fx.$=-c;if(k=='coffee'){S.cf=S.day;S.cfs=(S.cfs||0)+1;if(S.cfs>=5){fx.h=-3;S.cfs=0}}const r=ap(fx);toast('🛒 '+r,2500);say('🛒 購物 '+r);upd();drw()}
 function inv(k){const a=Math.max(100,+$('#ia').value||0);if(a>S.$)return toast('金錢不足');const g=Math.min(6,a/400)*(1-S[k]/130);const r1=ap({$:-a}),r2=ap({[k]:g});toast('🛒 '+r1+' '+r2,2500);say(`🛒 你${k=='ch'?'買了新衣服':'買了教科書'}（-$${a}）`);upd();drw()}
 function help(){if(busy)return;busy=true;const d=document.createElement('div');d.className='modal';d.id='md';
- const Qs=[['🕐 每日時間分配','在畫面上方，可以隨時調整。每天扣除通勤、吃飯等，有 18 小時可以分配。未分配的時間會變成耍廢。'],['📱 為什麼我不能下調耍廢時間','這就是萬惡的多巴胺迴路（提醒：人的自律程度會浮動，記得多按時間面板確認）'],['🗃️ 面板','在右上角，記得多多點開，有多項功能'],['📚 讀書方式','上課、共筆、考古題、原文書，自行在面板調整比例。'],['📝 考試','每次考試難度不同，會有不同準備策略。'],['📋 作業與 AI','老師指派的作業會出現在課業面板。記得去完成'],['💡 MBTI','各有特殊天賦，有待你自己發掘。']];
+ const Qs=[['🕐 每日時間分配','在畫面上方，可以隨時調整。每天扣除通勤、吃飯、家務等，有 18 小時可以分配。未分配的時間會變成耍廢。'],['📱 為什麼我不能下調耍廢時間','這就是萬惡的多巴胺迴路（提醒：人的自律程度會浮動，記得多按時間面板確認）'],['🗃️ 面板','在右上角，記得多多點開，有多項功能'],['📚 讀書方式','上課、共筆、考古題、原文書，自行在面板調整比例。'],['📝 考試','每次考試難度不同，會有不同準備策略。'],['📋 作業與 AI','老師指派的作業會出現在課業面板。記得去完成'],['💡 MBTI','各有特殊天賦，有待你自己發掘。']];
  d.innerHTML=`<div class="card"><h2>📖 玩法說明</h2><p class="sub">目標：撐過 9/1～12/25，四次段考平均及格。</p>${Qs.map(([a,b],i)=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}<br><button class="btn main" onclick="closeHelp()">我知道了</button></div>`;document.body.appendChild(d)}
 function save(){try{localStorage.setItem('ms12',JSON.stringify({S,spd}))}catch(e){}}
 function load(){try{const j=JSON.parse(localStorage.getItem('ms12'));if(j&&j.S){S=j.S;spd=[.5,1,2,4,8].includes(j.spd)?j.spd:1;Q=[];busy=false;paused=true;shell();return}}catch(e){}start()}
